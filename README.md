@@ -3,9 +3,9 @@
 
 
 ##필수 설치 요소
-*git
-*nodejs
-*heroku
+* git
+* nodejs
+* heroku
 
 
 ### git 설치
@@ -19,9 +19,9 @@ git 설치시 1.3 (?)이하 버젼의 경우 https 인증이 되지 않는 것�
 npm 의 경우 구버젼 에서 사용시 nodejs와 npm을 각각 설치하였으나 특정 버젼 이후로는 통합되어져서 같이 설치된다.
 운영체제 배포판에 따라 조금씩 포함 패키지가 다르니 ubuntu14.04를 제외한 곳에서는 확인이 필요하다
 실제로는 nodejs와 nodejs 패키지를 관리해주는 npm 둘다 설치가 되어야 한다.
-*node와 npm이라는 패키지를 설치해야 하는 배포판 존재
-*nodejs와 npm을 각각 설치해줘야하는 배포판 존재
-*nodejs만 설치하면 되는 배포판 존재
+* node와 npm이라는 패키지를 설치해야 하는 배포판 존재
+* nodejs와 npm을 각각 설치해줘야하는 배포판 존재
+* nodejs만 설치하면 되는 배포판 존재
 
 ```bash
 sudo add-apt-repository ppa:chris-lea/node.js -y
@@ -30,7 +30,7 @@ sudo apt-get update && sudo apt-get install nodejs -y
 
 
 ### heroku toolbelt install
-*https://toolbelt.heroku.com/
+* https://toolbelt.heroku.com/
 ```bash
 sudo wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
@@ -41,14 +41,14 @@ sudo wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```bash
 sudo npm install -g mean-cli
 ```
-*npm install 을 -g 옵션을 주고 설치하게 될 경우 전역으로 설치되며 설치 경로는 npm의 설치경로에 참조를 하게 되며 전체 프로젝트에서 참조할 수 있다.
-*전역 옵션을 주지 않고 각각의 패키지에 특정 버젼을 지정하여 설치도 가능하며 실제 프로그램 실행시 참조하는 순위에서는 후순위로 참조된다.
+* npm install 을 -g 옵션을 주고 설치하게 될 경우 전역으로 설치되며 설치 경로는 npm의 설치경로에 참조를 하게 되며 전체 프로젝트에서 참조할 수 있다.
+* 전역 옵션을 주지 않고 각각의 패키지에 특정 버젼을 지정하여 설치도 가능하며 실제 프로그램 실행시 참조하는 순위에서는 후순위로 참조된다.
 
 ### mean.io로 기본 앱 생성
 ```bash
 mean init "AppName"
 ```
-*이후 명령어는 화면에 출력되는 메세지에 따라 작성하면 되지만 기본적으로는 다음과 같다
+* 이후 명령어는 화면에 출력되는 메세지에 따라 작성하면 되지만 기본적으로는 다음과 같다
 ```bash
 cd AppName
 npm install && bower install
