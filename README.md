@@ -32,7 +32,7 @@ sudo apt-get update && sudo apt-get install nodejs -y
 ### heroku toolbelt install
 * https://toolbelt.heroku.com/
 ```bash
-sudo wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 ```
 
 
