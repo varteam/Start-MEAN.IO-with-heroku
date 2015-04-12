@@ -48,6 +48,8 @@ sudo npm install -g mean-cli
 ```bash
 mean init "AppName"
 ```
+* 폴더명과 프로젝트명이 다를경우에는 폴더명으로 먼저 생성후 프로젝트명 입력창에서 입력가능 (이후에는 환경설정 파일에서 수정)
+* mean-cli가 구버젼에서는 grunt를 기본 빌드툴로 사용하고 이후 버젼에서는 grunt와 gulp의 선택가능한 버젼이 있으며 현재는 gulp가 기본 빌드툴로 확인된다
 * 이후 명령어는 화면에 출력되는 메세지에 따라 작성하면 되지만 기본적으로는 다음과 같다
 ```bash
 cd AppName
@@ -61,6 +63,39 @@ npm install && bower install
 ###heroku 연동
 * 1차로 heroku 가입을 먼저 해야하며 위의 명령어로 툴벳을 설치한 이후에 작업한다.
 
+```bash
+cd AppName
+heroku login
+heroku keys:add 
+heroku git:remote -a "heroku app name"
+git fetch --unshallow 
+git push heroku master
+```
+
+* 기본 설치후에 heroku로 바로 push 할 경우 이상하게 문제 생기는 케이스가 있는데 2가지 해결법이 있다.
+* 1. rm -fr .git 으로 기존의 git 저장된 내역을 다 날리고 git init 이후 처음부터 생성한 git을 커밋한다
+* 2. git fetch --unshallow 로 전체 내역을 새로 업데이트 이후에 push를 한다
+
+ TODO : 이부분 원인에 대해서 추가로 조사가 필요.
+
+
+###Mongolab 설치
+* heroku 문서를 찾아보면 mongohq 관련 자료가 많은데 예전에는 기본플랜이 무료로 제공되었으나 2015-04-12기준으로 무료플랜은 찾을수가 없었다.
+* 따라서 Mongolab을 기준으로 설치한다.
+```bash
+heroku addons:add mongolab
+```
+* 설치가 완료되면 heroku 관리콘솔에서 add-ons 항목에 mongolab이 추가된 것을 볼 수 있다. (명령어가 아닌 웹상에서 추가해도 상관없다)
+* 설치된 애드온 항목을 클릭해보면 해당 애드온의 관리화면을 볼 수 있는데 여기서 실제 연결할 database 계정을 추가해준다.
+* 추가후에는 상단에 db 연결용 string을 기억/복사 해둔다.
+
+####
+기본적으로 설치되는 mean.io는 localhost의 db를 사용하게 되어있다
+이부분은 config/env 폴더내의 원하는 환경의 설정 파일을 수정해서 db connection string 을 수정해준다.
+```bash
+vim config/env/production.js
+```
+* 4번라인에 보면 db연결용 string이 있는데 위에 mongolab 환경설정시 표시되었던 string으로 수정해준다.
 
 
 TODO : heroku 변경 사항이 많아서 최종 테스트가 충분히 된 후 업데이트 예정
